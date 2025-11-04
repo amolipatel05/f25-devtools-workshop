@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <link rel="stylesheet" href="style.css" />
   <title>Users API Practice</title>
 </head>
 <body>
@@ -9,7 +10,6 @@
   <input type="text" id="nameInput" placeholder="Enter your name" />
   <button onclick="createUser()">Create User</button>
   <button onclick="deleteUser()">Delete User</button>
-  <button onclick="getUsers()">Show Users</button>
 
   <ul id="userList"></ul>
 
@@ -36,6 +36,7 @@
     async function deleteUser() {
 
     }
+    getUsers();
   </script>
   
 </body>

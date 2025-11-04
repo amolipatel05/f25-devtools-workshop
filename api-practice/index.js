@@ -6,6 +6,7 @@ const port = 3000;
 
 // Middleware
 app.use(express.json());
+app.use(express.static(__dirname));
 
 let users = [];
 
@@ -27,6 +28,7 @@ app.post("/users", (req, res) => {
     return;
   }
   users.push(name);
+  res.send(`User ${name} added successfully`);
 });
 
 // TODO: DELETE a user (Try to recycle as much code from app.post as possible!)
