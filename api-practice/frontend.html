@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Users API Practice</title>
+</head>
+<body>
+  <h1>Users API Practice</h1>
+
+  <input type="text" id="nameInput" placeholder="Enter your name" />
+  <button onclick="createUser()">Create User</button>
+  <button onclick="deleteUser()">Delete User</button>
+  <button onclick="getUsers()">Show Users</button>
+
+  <ul id="userList"></ul>
+
+  <script>
+    const baseUrl = "http://localhost:3000/users";
+  
+    async function getUsers() {
+      const res = await fetch(baseUrl);
+      const text = await res.text();
+      document.getElementById("userList").innerHTML = "<li>" + text + "</li>";
+    }
+  
+    async function createUser() {
+      const name = document.getElementById("nameInput").value;
+      const res = await fetch(baseUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name })
+      });
+      getUsers();
+    }
+  
+    // TODO: Implement deleteUser function
+    async function deleteUser() {
+
+    }
+  </script>
+  
+</body>
+</html>
